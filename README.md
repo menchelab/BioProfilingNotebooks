@@ -37,3 +37,11 @@ You can follow the same instructions in a PowerShell. After installing Docker de
 * Run the notebook server explicitely stating the path to this repository:
 
 		docker run -p 9999:8888 -v C:\<pathOnYourComputer>\analysisrmp:/home/jovyan analysisrmp
+		
+### Note for Linux users
+
+You can follow the general instructions. You might need to run Docker with super-user privileges depending on your setup, *i.e.* using *sudo docker* in all calls to Docker.
+
+### Note for MacOS users
+
+You can follow the general instructions.
