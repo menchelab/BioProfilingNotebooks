@@ -14,6 +14,6 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 
 * Find the token needed to connect to the Jupyter notebook in the console output and go to the corresponding address in your browser:
 
-	http://127.0.0.1:9999/?token=<yourToken>
+	http://127.0.0.1:9999/?token=&ltyourToken>
 
 * You can now choose a notebook to run.
