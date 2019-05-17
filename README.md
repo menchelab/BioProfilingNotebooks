@@ -4,13 +4,15 @@ Demonstration of the use of robust statistics for morphological cell profiling u
 
 ## Running the code using Docker
 
+### General instructions
+
 This repository compiles a collection of scripts and Jupyter notebooks. For reproducibility, it is designed to run in a Docker container based on the [jupyter/datascience-notebook image](https://hub.docker.com/r/jupyter/datascience-notebook). The following steps describe how to run the code in the same development environment as intended:
 
 * [Install and run Docker Desktop](https://www.docker.com/get-started) on your machine (the Community Edition is available for free).
 * Clone this repository and set its root folder as your working directory.
 * Run the following command the first time you want to run code from this repository - which might take some time to download all requirements:
 
-		docker build --rm -t analysisrmp
+		docker build --rm -t analysisrmp .
 	
 * Run the following each time you want to start a notebook server to run code from this repository:
 
@@ -22,3 +24,16 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 
 * You can now choose a notebook to run.
 * Close the notebook server and the docker container by pressing CTRL+C in your terminal.
+
+### Note for Windows users
+
+You can follow the same instructions in a PowerShell. After installing Docker desktop, you might need to:
+
+* Run and complete the following procedure:
+		
+		docker login
+
+* Share the drive in which you cloned this repository in Docker's settings
+* Run the notebook server explicitely stating the path to this repository:
+
+		docker run -p 9999:8888 -v C:\<pathOnYourComputer>\analysisrmp:/home/jovyan analysisrmp
