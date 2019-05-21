@@ -14,6 +14,7 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 
 		docker build --rm -t analysisrmp .
 	
+* Put the required input data in the repository.
 * Run the following each time you want to start a notebook server to run code from this repository:
 
 		docker run -p 9999:8888 -v `pwd`:/home/jovyan analysisrmp
