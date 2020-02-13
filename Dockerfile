@@ -11,8 +11,9 @@ RUN fc-cache -fv /tmp/.fonts
 # Install required Python Modules
 RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r /tmp/requirements.txt
 
+# Install required R Modules
+RUN Rscript /tmp/requirements.R
+
 # Install required Julia Modules
 RUN julia /tmp/requirements.jl
 
-# Install required R Modules
-RUN Rscript /tmp/requirements.R
