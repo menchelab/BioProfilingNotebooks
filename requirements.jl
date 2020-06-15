@@ -2,6 +2,7 @@ import Pkg
 Pkg.add("CSV")
 Pkg.add("StatsBase")
 Pkg.add("DataFrames")
+Pkg.add("DocOpt")
 Pkg.add("UMAP")
 Pkg.add("RCall")
 Pkg.add("MultipleTesting")
