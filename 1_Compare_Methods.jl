@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 #################################### Help ###################################
+# srun --partition=shortq --time=3:30:00 --job-name="$(date +%F)_InterCellProf" --nodes=1 --mem=16000 --pty --x11 cellprofiler'
 
 doc = """Compares the ability of different approaches to quantify and identify significant changes in statistical distributions of samples, corresponding to synthetic datasets having similarities to actual morphological measurement datasets from high-content imaging and including outliers.  
 See 1_Compare_Methods.ipynb for a more verbose description of this script.
@@ -431,11 +432,11 @@ push!(benchmarkRMPV, plateRMPV[1]);
 
 Random.seed!(3895)
 modelPCA = fit(PCA, convert(Matrix, normDataset)'; pratio = 0.9)
-dimPCA = outdim(modelPCA)
+dimPCA = min(outdim(modelPCA), 50)
 pcaND = MultivariateStats.transform(modelPCA, convert(Matrix, normDataset)')
 pcaND = convert(DataFrame, pcaND')
 # Scale by importance of each principal component
-pcaND = DataFrame(principalvars(modelPCA) .* eachcol(pcaND))
+pcaND = DataFrame(principalvars(modelPCA) .* eachcol(pcaND))[:,1:dimPCA]
 names!(pcaND, Symbol.(string.("PC", 1:dimPCA)))
 
 pcaND[:Condition] = origDataset
