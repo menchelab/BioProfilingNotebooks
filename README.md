@@ -1,6 +1,11 @@
-# analysisRMP
+# BioProfilingNotebooks
 
-Demonstration of the use of robust statistics for morphological cell profiling using high-content imaging.  
+Demonstration of the use of BioProfiling.jl and robust statistics for morphological cell profiling using high-content imaging.  
+
+## Prerequisites 
+
+* Create a subfolder called `fig`
+* Create a subfolder called `data`
 
 ## Running the code using Docker
 
@@ -24,6 +29,11 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 	http://127.0.0.1:9999/?token=<yourToken&gt;
 
 * You can now choose a notebook to run.
+* The following order is recommended:
+	* *Fig1_Common_Artifacts.ipynb*
+	* *Fig2_Analysis-750CellsPerWell.ipynb*
+	* *Fig2_Analysis-750CellsPerWell-HitDetection.ipynb*
+	* *Fig2_Analysis-750CellsPerWell-HitEnrichment.ipynb*
 * Close the notebook server and the docker container by pressing CTRL+C in your terminal.
 
 ### Note for Windows users
@@ -46,3 +56,7 @@ You can follow the general instructions. You might need to run Docker with super
 ### Note for MacOS users
 
 You can follow the general instructions.
+
+### Note for Singularity users
+
+First build the image with Docker (on any machine) and upload the image to DockerHub. You can then `singularity pull` the image, convert it to a sandbox and run the sandbox with the --no-home and --writable flags, while binding your current directory to `/home/jovyan/`.
