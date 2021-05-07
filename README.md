@@ -21,11 +21,12 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 * Make sure you followed the _Prerequisites_ section and that the input data is in the repository, in the `data` subfolder.
 
 #### Option 1 - Pulling the image from DockerHub [fast]
+* You can obtain a pre-built image to run this notebooks from the DockerHub image repository:
 
 		docker pull koalive/bioprofilingnotebooks:v3
 
 #### Option 2 - Building the image from the Dockerfile [robust]
-* Run the following command the first time you want to run code from this repository - which might take some time to download all requirements:
+* Alternatively, run the following command the first time you want to run code from this repository - which might take some time to download all requirements:
 
 		docker build --rm -t bioprofilingnotebooks .
 		docker tag bioprofilingnotebooks koalive/bioprofilingnotebooks:v3
@@ -49,17 +50,18 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 
 * The following order is recommended:
 	* *Fig1_Common_Artifacts.ipynb*
-	* *Fig2_Analysis-750CellsPerWell.ipynb*
-	* *Fig2_Analysis-750CellsPerWell-HitDetection.ipynb*
-	* *Fig2_Analysis-750CellsPerWell-HitEnrichment.ipynb*
-	* *FigS1_Analysis-1500CellsPerWell.ipynb*
-	* *FigS1_Analysis-1500CellsPerWell-HitDetection.ipynb*
+	* *Fig2a_Profiling.ipynb*
+	* *Fig2b_HitDetection.ipynb*
+	* *FigS1a_Profiling.ipynb*
+	* *FigS1b_HitDetection.ipynb*
+	* *Fig3_HitEnrichment.ipynb*
 
 * Close the notebook server and the docker container by pressing CTRL+C in your terminal.
 
 #### Warning
 
-The notebooks *Fig2_Analysis-750CellsPerWell.ipynb* and *FigS1_Analysis-1500CellsPerWell.ipynb* require to load individual cell measurements for whole plates and might run out of memory on a desktop machine. We recommend 32GB of memory for these steps.
+The notebooks *Fig2a_Profiling.ipynb* and *FigS1a_Profiling.ipynb* require to load individual cell measurements for whole plates and might run out of memory on a desktop machine. We recommend up to 80GB of memory for these steps.  
+Note that without mounting a folder with the raw images, the cells demonstrating the use of the visual diagnostics in these same notebooks cannot be run. The overall analysis should be reproducible nonetheless.
 
 ### Note for Windows users
 
@@ -84,8 +86,8 @@ You can follow the general instructions.
 
 ### Note for Singularity users
 
-You can use `singularity pull docker://koalive/bioprofilingnotebooks:v3` to get the image from DockerHub, then convert it to a sandbox with `singularity build --sandbox sandbox/ bioprofilingnotebooks_v3.sif` and run the sandbox with the --no-home and --writable flags, while binding your current directory to `/home/jovyan/`:
-```singularity exec -B /users/loan.vulliard/:/home/jovyan --writable --no-home sandbox/ jupyter-notebook --port 6789```
+You can use `singularity pull docker://koalive/bioprofilingnotebooks:v3` to get the image from DockerHub, then convert it to a sandbox with `singularity build --sandbox sandbox/ bioprofilingnotebooks_v3.sif` and run the sandbox with the --no-home and --writable flags on a given port (*6789* in this example), while binding your current directory to `/home/jovyan/`:
+```singularity exec -B /your/working/directory/:/home/jovyan --writable --no-home sandbox/ jupyter-notebook --port 6789```
 We recommend commenting out the following lines in the notebooks, which requires to load temporary fonts used for plotting results, which will not be available in the singularity sandbox:
 ```
 ttf_import(paths = "/tmp/.fonts/")
