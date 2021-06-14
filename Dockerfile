@@ -1,4 +1,4 @@
-FROM jupyter/datascience-notebook
+FROM jupyter/datascience-notebook:julia-1.5.3
 
 COPY requirements.jl requirements.R /tmp/
 

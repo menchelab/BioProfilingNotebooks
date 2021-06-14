@@ -78,7 +78,9 @@ You can follow the same instructions in a PowerShell. After installing Docker de
 		
 ### Note for Linux users
 
-You can follow the general instructions. You might need to run Docker with super-user privileges depending on your setup, *i.e.* using *sudo docker* in all calls to Docker.
+You can follow the general instructions. You might need to run Docker with super-user privileges depending on your setup, *i.e.* using *sudo docker* in all calls to Docker.  
+If the following happens when you try to run the notebook server: `PermissionError: [Errno 13] Permission denied: '/home/jovyan/.local'`, try the following options:
+`sudo docker run --user $(id -u):$(id -g) --group-add users -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v3`
 
 ### Note for MacOS users
 
