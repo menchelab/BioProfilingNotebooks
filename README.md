@@ -1,13 +1,15 @@
 # BioProfilingNotebooks
 
-Demonstration of the use of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging.  
+Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging.  
 
 ## Prerequisites 
 
 * Create a subfolder called `fig`, where the generated figures will be saved.
-* Create a subfolder called `data`, where the input and intermediate will be stored.
+* Create a subfolder called `data`, where the input and intermediate files will be stored.
 * Copy the transfer list and morphological measurement files in the `data` folder.
 * (Optional) Mount or copy the raw images in a folder if you want to use the visual diagnostics features.
+
+We are currently in the process of uploading this data to public repositories. 
 
 ## Running the code using Docker
 
