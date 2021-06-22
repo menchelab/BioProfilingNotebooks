@@ -1,15 +1,14 @@
-# BioProfilingNotebooks
+# BioProfiling.jl analysis notebooks
 
-Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging.  
+Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging. Analyses described in the manuscript ["BioProfiling.jl: Profiling biological perturbations with high-content imaging in single cells and heterogeneous populations"](https://doi.org/10.1101/2021.06.18.448961) by Loan Vulliard, Joel Hancock, Anton Kamnev, Christopher W. Fell, Joana Ferreira da Silva, Joanna Loizou, Vanja Nagy, Loïc Dupré and Jörg Menche.
 
 ## Prerequisites 
 
 * Create a subfolder called `fig`, where the generated figures will be saved.
 * Create a subfolder called `data`, where the input and intermediate files will be stored.
+* Download the input data [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v1). Only the file `data.zip` is necessary to reproduce the core results of the analysis described in this notebook.
 * Copy the transfer list and morphological measurement files in the `data` folder.
 * (Optional) Mount or copy the raw images in a folder if you want to use the visual diagnostics features.
-
-We are currently in the process of uploading this data to public repositories. 
 
 ## Running the code using Docker
 
