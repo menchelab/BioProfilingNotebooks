@@ -24,22 +24,22 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 #### Option 1 - Pulling the image from DockerHub [fast]
 * You can obtain a pre-built image to run this notebooks from the DockerHub image repository:
 
-		docker pull koalive/bioprofilingnotebooks:v3
+		docker pull koalive/bioprofilingnotebooks:v4
 
 #### Option 2 - Building the image from the Dockerfile [robust]
 * Alternatively, run the following command the first time you want to run code from this repository - which might take some time to download all requirements:
 
 		docker build --rm -t bioprofilingnotebooks .
-		docker tag bioprofilingnotebooks koalive/bioprofilingnotebooks:v3
+		docker tag bioprofilingnotebooks koalive/bioprofilingnotebooks:v4
 
 #### Start a docker container running a Jupyter server	
 * Run the following each time you want to start a notebook server to run code from this repository:
 
-		docker run -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v3
+		docker run -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v4
 
 * (Optional) If you wish to test the visual diagnostic features, you need to specify the folder in which the images can be found:
 
-		docker run -p 9999:8888 -v `pwd`:/home/jovyan -v /Local/Path/To/Images/:/images/ koalive/bioprofilingnotebooks:v3
+		docker run -p 9999:8888 -v `pwd`:/home/jovyan -v /Local/Path/To/Images/:/images/ koalive/bioprofilingnotebooks:v4
 
 * Find the token needed to connect to the Jupyter notebook in the console output and go to the corresponding address in your browser:
 
@@ -75,13 +75,13 @@ You can follow the same instructions in a PowerShell. After installing Docker de
 * Share the drive in which you cloned this repository in Docker's settings
 * Run the notebook server explicitely stating the path to this repository:
 
-		docker run -p 9999:8888 -v C:\<pathOnYourComputer>\BioProfilingNotebooks:/home/jovyan koalive/bioprofilingnotebooks:v3
+		docker run -p 9999:8888 -v C:\<pathOnYourComputer>\BioProfilingNotebooks:/home/jovyan koalive/bioprofilingnotebooks:v4
 		
 ### Note for Linux users
 
 You can follow the general instructions. You might need to run Docker with super-user privileges depending on your setup, *i.e.* using *sudo docker* in all calls to Docker.  
 If the following happens when you try to run the notebook server: `PermissionError: [Errno 13] Permission denied: '/home/jovyan/.local'`, try the following options:
-`sudo docker run --user $(id -u):$(id -g) --group-add users -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v3`
+`sudo docker run --user $(id -u):$(id -g) --group-add users -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v4`
 
 ### Note for MacOS users
 
