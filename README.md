@@ -9,6 +9,7 @@ Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.j
 * Download the input data [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v1). Only the file `data.zip` is necessary to reproduce the core results of the analysis described in this notebook.
 * Copy the transfer list and morphological measurement files in the `data` folder.
 * (Optional) Mount or copy the raw images in a folder if you want to use the visual diagnostics features.
+* (Optional) If you want to run the minimal example in the *FigS2_LUAD*, you will need additional external data. The instructions are provided in the notebook itself.
 
 ## Running the code using Docker
 
@@ -56,6 +57,8 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 	* *FigS1a_Profiling.ipynb*
 	* *FigS1b_HitDetection.ipynb*
 	* *Fig3_HitEnrichment.ipynb*
+
+* The notebook *FigS2_LUAD.ipynb* is independent and can provide a simpler example (with smaller data and easily running on a laptop).
 
 * Close the notebook server and the docker container by pressing CTRL+C in your terminal.
 
