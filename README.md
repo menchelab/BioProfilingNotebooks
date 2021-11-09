@@ -2,15 +2,19 @@
 
 Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging. Analyses described in the manuscript ["BioProfiling.jl: Profiling biological perturbations with high-content imaging in single cells and heterogeneous populations"](https://doi.org/10.1101/2021.06.18.448961) by Loan Vulliard, Joel Hancock, Anton Kamnev, Christopher W. Fell, Joana Ferreira da Silva, Joanna Loizou, Vanja Nagy, Loïc Dupré and Jörg Menche.
 
-## Prerequisites 
+## Summary
+
+This collection of notebooks includes the analysis of a high-content imaging chemical screen, the comparison of the morphological activity of compounds on cells seeded at two densities, as well as the comparison of genetic overexpression in two plates in a genetic screen following the Cell Painting assay. This demonstrates how to curate morphological profiles and perform common tasks for downstream analyses using _BioProfiling.jl_. All details can be found [in the corresponding manuscript]((https://doi.org/10.1101/2021.06.18.448961). For the content of each notebook, see the section "Reproducing example analyses" below, and the header of each notebook.
+
+## Prerequisites
 
 * Create a subfolder called `fig`, where the generated figures will be saved.
 * Create a subfolder called `data`, where the input and intermediate files will be stored.
-* Download the input data [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v1). Only the file `data.zip` is necessary to reproduce the core results of the analysis described in this notebook.
+* Download the input data [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v2). Only the file `data.zip` is necessary to reproduce the core results of the analysis described in this notebook.
 * Copy the transfer list and morphological measurement files in the `data` folder.
 * (Optional) Mount or copy the raw images in a folder if you want to use the visual diagnostics features.
-* (Optional) If you want to run the minimal example in the *FigS2_LUAD*, you will need additional external data. The instructions are provided in the notebook itself.
-* (Optional) If you only want to reproduce parts of the analysis, you can copy the intermediate files [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v1) into the `data` folder.
+* (Optional) If you want to run the minimal example in the *FigS3_LUAD*, you will need additional external data. The instructions are provided in the notebook itself.
+* (Optional) If you only want to reproduce parts of the analysis, you can copy the intermediate files [from Figshare](https://doi.org/10.6084/m9.figshare.14784678.v2) into the `data` folder.
 
 ## Running the code using Docker
 
@@ -34,7 +38,7 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 		docker build --rm -t bioprofilingnotebooks .
 		docker tag bioprofilingnotebooks koalive/bioprofilingnotebooks:v4
 
-#### Start a docker container running a Jupyter server	
+#### Start a docker container running a Jupyter server
 * Run the following each time you want to start a notebook server to run code from this repository:
 
 		docker run -p 9999:8888 -v `pwd`:/home/jovyan koalive/bioprofilingnotebooks:v4
@@ -45,29 +49,33 @@ This repository compiles a collection of scripts and Jupyter notebooks. For repr
 
 * Find the token needed to connect to the Jupyter notebook in the console output and go to the corresponding address in your browser:
 
-	http://127.0.0.1:9999/?token=<yourToken&gt;
+		http://127.0.0.1:9999/?token=<yourToken&gt;
 
-* You can now choose a notebook to run.
+* You can now choose a notebook to run (see the next section for details).
 
-#### Reproducing example analysis
+* When you are done, close the notebook server and the docker container by pressing CTRL+C in your terminal.
 
-* The following order is recommended:
-	* *Fig1_Common_Artifacts.ipynb*
+#### Reproducing example analyses
+The notebooks are split in four different categories as follows:
+
+* The **main analyses**, describing the complete analyses of a drug screen using _BioProfiling.jl_ and contextualizing the profiles using external annotations of the compounds. The following order is recommended:
 	* *Fig2a_Profiling.ipynb*
 	* *Fig2b_HitDetection.ipynb*
-	* *FigS1a_Profiling.ipynb*
-	* *FigS1b_HitDetection.ipynb*
-	* *Fig3_HitEnrichment.ipynb*
+	* *Fig3_HitEnrichment.ipynb*	
+* The **additional analyses**, describing more precisely results from the drug screen and exploring alternative approaches. They require some files from the main analyses and can be run either after completing the *Fig2b_HitDetection.ipynb* notebook or using the [intermediate files provided on FigShare](https://doi.org/10.6084/m9.figshare.14784678.v2). The following order is recommended:
+	* *FigS1_NoCellFilter.ipynb*
+	* *FigS2a_Profiling.ipynb*
+	* *FigS2b_HitDetection.ipynb*
+	* *FigS3_ProfilingApproaches.ipynb*
 	* *STables.ipynb*
+* The notebook *Fig1_Common_Artifacts.ipynb* is independent and simply represents the **prevalence of common imaging artifacts** and biological outliers in high-content imaging datasets. 
+* The notebook *FigS4_LUAD.ipynb* is independent and can provide a **simpler example** based on an external genetic screen made available as part of the [CytoData Hackathon 2018](https://github.com/cytodata/cytodata-hackathon-2018) (with smaller data and easily running on a laptop).
 
-* The notebook *FigS2_LUAD.ipynb* is independent and can provide a simpler example (with smaller data and easily running on a laptop).
-
-* Close the notebook server and the docker container by pressing CTRL+C in your terminal.
 
 #### Warning
 
-The notebooks *Fig2a_Profiling.ipynb* and *FigS1a_Profiling.ipynb* require to load individual cell measurements for whole plates and might run out of memory on a desktop machine. We recommend up to 80GB of memory for these steps.  
-Note that without mounting a folder with the raw images, the cells demonstrating the use of the visual diagnostics in these same notebooks cannot be run. The overall analysis should be reproducible nonetheless.
+The notebooks *Fig2a_Profiling.ipynb*, *FigS1_NoCellFilter.ipynb* and *FigS2a_Profiling.ipynb* require to load individual cell measurements for whole plates and might run out of memory on a desktop machine. We recommend up to 80GB of memory for these steps.  
+Note that without mounting a folder with the raw images, the notebook cells demonstrating the use of the visual diagnostics in these same notebooks cannot be run. The overall analysis should be reproducible nonetheless.
 
 ### Note for Windows users
 
@@ -94,7 +102,7 @@ You can follow the general instructions.
 
 ### Note for Singularity users
 
-You can use `singularity pull docker://koalive/bioprofilingnotebooks:v3` to get the image from DockerHub, then convert it to a sandbox with `singularity build --sandbox sandbox/ bioprofilingnotebooks_v3.sif` and run the sandbox with the --no-home and --writable flags on a given port (*6789* in this example), while binding your current directory to `/home/jovyan/`:
+You can use `singularity pull docker://koalive/bioprofilingnotebooks:v4` to get the image from DockerHub, then convert it to a sandbox with `singularity build --sandbox sandbox/ bioprofilingnotebooks_v4.sif` and run the sandbox with the --no-home and --writable flags on a given port (*6789* in this example), while binding your current directory to `/home/jovyan/`:
 ```singularity exec -B /your/working/directory/:/home/jovyan --writable --no-home sandbox/ jupyter-notebook --port 6789```
 We recommend commenting out the following lines in the notebooks, which requires to load temporary fonts used for plotting results, which will not be available in the singularity sandbox:
 ```
