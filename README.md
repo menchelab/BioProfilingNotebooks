@@ -1,5 +1,8 @@
 # BioProfiling.jl analysis notebooks
 
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5659932.svg)](https://doi.org/10.5281/zenodo.5659932)
+
 Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging. Analyses described in the manuscript ["BioProfiling.jl: Profiling biological perturbations with high-content imaging in single cells and heterogeneous populations"](https://doi.org/10.1101/2021.06.18.448961) by Loan Vulliard, Joel Hancock, Anton Kamnev, Christopher W. Fell, Joana Ferreira da Silva, Joanna Loizou, Vanja Nagy, Loïc Dupré and Jörg Menche.
 
 ## Summary
