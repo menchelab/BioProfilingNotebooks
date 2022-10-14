@@ -3,11 +3,11 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.5659932.svg)](https://doi.org/10.5281/zenodo.5659932)
 
-Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging. Analyses described in the manuscript ["BioProfiling.jl: Profiling biological perturbations with high-content imaging in single cells and heterogeneous populations"](https://doi.org/10.1101/2021.06.18.448961) by Loan Vulliard, Joel Hancock, Anton Kamnev, Christopher W. Fell, Joana Ferreira da Silva, Joanna Loizou, Vanja Nagy, Loïc Dupré and Jörg Menche.
+Demonstration of [_BioProfiling.jl_](https://github.com/menchelab/BioProfiling.jl) and robust statistics for morphological cell profiling using high-content imaging. Analyses described in the article ["BioProfiling.jl: Profiling biological perturbations with high-content imaging in single cells and heterogeneous populations"](https://doi.org/10.1093/bioinformatics/btab853) by Loan Vulliard, Joel Hancock, Anton Kamnev, Christopher W. Fell, Joana Ferreira da Silva, Joanna I. Loizou, Vanja Nagy, Loïc Dupré and Jörg Menche.
 
 ## Summary
 
-This collection of notebooks includes the analysis of a high-content imaging chemical screen, the comparison of the morphological activity of compounds on cells seeded at two densities, as well as the comparison of genetic overexpression in two plates in a genetic screen following the Cell Painting assay. This demonstrates how to curate morphological profiles and perform common tasks for downstream analyses using _BioProfiling.jl_. All details can be found [in the corresponding manuscript]((https://doi.org/10.1101/2021.06.18.448961). For the content of each notebook, see the section "Reproducing example analyses" below, and the header of each notebook.
+This collection of notebooks includes the analysis of a high-content imaging chemical screen, the comparison of the morphological activity of compounds on cells seeded at two densities, as well as the comparison of genetic overexpression in two plates in a genetic screen following the Cell Painting assay. This demonstrates how to curate morphological profiles and perform common tasks for downstream analyses using _BioProfiling.jl_. All details can be found [in the corresponding publication](https://doi.org/10.1093/bioinformatics/btab853). For the content of each notebook, see the section "Reproducing example analyses" below, and the header of each notebook.
 
 ## Prerequisites
 
